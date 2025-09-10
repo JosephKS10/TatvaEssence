@@ -1,0 +1,125 @@
+.reviews-section {
+  padding: 5rem 1.5rem;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.reviews-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-card {
+  width: 100%;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.quote-icon {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 4rem;
+  color: #4CAF50;
+  opacity: 0.2;
+  font-family: serif;
+  line-height: 1;
+}
+
+.review-content {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.author-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4CAF50;
+}
+
+.author-info h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.author-info p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+
+.review-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.review-dot.active {
+  background: #4CAF50;
+  transform: scale(1.2);
+}
+
+.review-dot:focus {
+  outline: 2px solid #4CAF50;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .review-card {
+    padding: 2rem;
+  }
+  
+  .review-content {
+    font-size: 1.1rem;
+  }
+  
+  .author-avatar {
+    width: 60px;
+    height: 60px;
+  }
+}

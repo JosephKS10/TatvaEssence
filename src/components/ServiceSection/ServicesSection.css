@@ -1,0 +1,161 @@
+/* ServicesSection.css */
+.services-section {
+  padding: 5rem 1.5rem;
+  background-color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-areas:
+    "large small-tiles"
+    "wide wide";
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.large-tile {
+  grid-area: large;
+}
+
+.small-tiles {
+  grid-area: small-tiles;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wide-tile {
+  grid-area: wide;
+}
+
+.service-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card.large {
+  height: 600px;
+}
+
+.service-card.small {
+  height: 290px;
+}
+
+.service-card.wide {
+  height: 300px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  color: white;
+}
+
+.service-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.service-tagline {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.service-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.service-button {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .services-grid {
+    grid-template-areas:
+      "large"
+      "small-tiles"
+      "wide";
+  }
+  
+  .small-tiles {
+    flex-direction: row;
+  }
+  
+  .service-card.large {
+    height: 300px;
+  }
+  
+  .service-card.small {
+    height: 300px;
+    width: 100%;
+  }
+  
+  .service-card.wide {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .small-tiles {
+    flex-direction: column;
+  }
+}

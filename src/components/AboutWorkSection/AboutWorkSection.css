@@ -1,0 +1,237 @@
+/* AboutWorkSection.css */
+.about-work-section {
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+}
+
+.change-strip {
+  background: linear-gradient(350deg, #3e2723 10%, #795548 100%);
+  padding: 4rem 2rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.change-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+/* Left side - THE CHANGE text */
+.change-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.change-title {
+  font-size: 7.5rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  position: relative;
+  left: -5rem;
+  background: url('https://images.unsplash.com/photo-1741186695426-e17db619c21d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGdyZWVuJTIwd29vZHxlbnwwfDB8MHx8fDA%3D') center/cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-blend-mode: overlay;
+  -webkit-text-stroke: 1px white;
+}
+
+.change-title::before {
+  content: 'THE CHANGE';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Right side - Horizontal stats */
+.stats-horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  left: -3rem;
+}
+
+.stat-item-horizontal {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.count-up-stat-horizontal {
+  text-align: center;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ensures vertical alignment */
+  padding: 1rem;
+  border-radius: 16px;
+  width: 10vw;
+  height: 25vh;
+
+}
+
+.stat-icon {
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.stat-value-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+  justify-content: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.stat-unit {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+  font-weight: 500;
+  width: 140px;
+}
+
+
+.vertical-separator {
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.5) 20%, 
+    rgba(255, 255, 255, 0.8) 50%, 
+    rgba(255, 255, 255, 0.5) 80%, 
+    transparent 100%
+  );
+  margin: 0 1rem;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .change-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .stats-horizontal {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .stat-item-horizontal {
+    min-width: 140px;
+    flex: 0 1 auto;
+  }
+  
+  .vertical-separator {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .change-strip {
+    padding: 3rem 1rem;
+  }
+  
+  .change-container {
+    padding: 0 10px;
+  }
+
+  .change-title {
+    font-size: 4rem;
+    position: absolute;
+    left: 0%;
+    top:  0%;
+  }
+  
+  .stats-horizontal {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    position: relative;
+    left: 0;
+    margin-top: 5rem;
+  }
+  
+  .stat-item-horizontal {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .count-up-stat-horizontal {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .stat-value {
+    font-size: 1.8rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .change-strip {
+    padding: 2rem 0.75rem;
+  }
+  
+  .change-container {
+    padding: 0 5px;
+  }
+  
+
+  
+  .stat-value {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+  }
+}

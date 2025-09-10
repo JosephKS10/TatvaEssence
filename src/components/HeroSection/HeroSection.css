@@ -1,0 +1,227 @@
+/* HeroSection.css */
+
+/* Base Hero Section Styles */
+.hero-section {
+  position: relative;
+  height: 100vh; /* Changed from 80vh to 100vh to fill entire viewport */
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* Background Image Styles */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.2)
+  );
+  backdrop-filter: contrast(0.9);
+  transition: backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+/* Content Styles */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  padding: 0 1.5rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.hero-button {
+  background-color: white;
+  color: black;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.hero-button:hover {
+  transform: scale(1.05);
+}
+
+.hero-button:active {
+  transform: scale(0.95);
+}
+
+/* Scrolling Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.scroll-indicator-container {
+  width: 1.5rem;
+  height: 2.5rem;
+  border: 2px solid white;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator-dot {
+  width: 0.25rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 9999px;
+  margin-top: 0.5rem;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-button {
+    padding: 0.625rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Add these to your existing HeroSection.css */
+
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.hero-nav:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.hero-nav-left {
+  left: 2rem;
+}
+
+.hero-nav-right {
+  right: 2rem;
+}
+
+.banner-indicators {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 20;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .hero-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .hero-nav-left {
+    left: 1rem;
+  }
+  
+  .hero-nav-right {
+    right: 1rem;
+  }
+  
+  .banner-indicators {
+    bottom: 3rem;
+  }
+}
