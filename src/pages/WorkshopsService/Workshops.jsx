@@ -10,20 +10,83 @@ export default function Workshops() {
     document.body.classList.remove('no-scroll')
   }, [])
 
-  // Workshop data
+  // Workshop data with updated descriptions
   const workshops = {
     schools: [
-      { id: 1, title: 'Tray Garden', subheading: 'Create your mini garden', image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=2070&auto=format&fit=crop', description: 'Learn to create beautiful tray gardens with a variety of plants. Perfect for small spaces and beginners.' },
-      { id: 2, title: 'Bottle Bloom', subheading: 'Upcycle bottles into planters', image: 'https://images.unsplash.com/photo-1597848212624-e9f912c936f5?q=80&w=1974&auto=format&fit=crop', description: 'Transform used bottles into beautiful plant containers. Eco-friendly and creative gardening solution.' },
-      { id: 3, title: 'Terrarium Making', subheading: 'Build your own ecosystem', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1932&auto=format&fit=crop', description: 'Create self-sustaining miniature ecosystems in glass containers. Low maintenance and visually stunning.' },
-      { id: 4, title: 'Bonsai Making', subheading: 'Art of miniature trees', image: 'https://images.unsplash.com/photo-1613601315535-23c6e7aeeaf3?q=80&w=2072&auto=format&fit=crop', description: 'Learn the ancient art of bonsai cultivation. Patience and technique for beautiful miniature trees.' },
-      { id: 5, title: 'Kokedama', subheading: 'Japanese string garden', image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=2070&auto=format&fit=crop', description: 'Create beautiful moss ball plants using the traditional Japanese kokedama technique.' }
+      { 
+        id: 1, 
+        title: 'Tray Garden', 
+        subheading: 'Create your mini garden', 
+        image: './images/workshops/tray.jpg', 
+        description: ['Participants create their own mini tray garden using an elegant white planter, Tatva Essence’s organic compost, and a healthy plant.','After potting, they add decorative elements such as pebbles, moss, and figurines to personalize their garden.','A creative and relaxing activity that blends nature, design, and learning.'],
+        emoji: '🌱'
+      },
+      { 
+        id: 2, 
+        title: 'Bottle Bloom', 
+        subheading: 'Upcycle bottles into planters', 
+        image: './images/workshops/bottle.png', 
+        description: ['Encourages participants to upcycle waste plastic bottles into hanging planters.','With threads, soil, compost, and organic seeds, they transform bottles into green displays for campuses or offices.','Promotes sustainability and environmental awareness in a fun, hands-on way.'],
+        emoji: '🌱'
+      },
+      { 
+        id: 3, 
+        title: 'Terrarium Making', 
+        subheading: 'Build your own ecosystem', 
+        image: './images/workshops/terarium.png', 
+        description: ['Teaches the art of creating a miniature self-sustaining garden inside a glass container.','Participants carefully layer soil, stones, moss, and small plants to build their terrarium.','Aesthetic, low-maintenance décor that sparks creativity and connects people with nature.'],
+        emoji: '🌱'
+      },
+      { 
+        id: 4, 
+        title: 'Bonsai Making', 
+        subheading: 'Art of miniature trees', 
+        image: './images/workshops/bonsai.png', 
+        description: ['Introduces participants to the traditional Japanese art of bonsai.','Learn techniques like pruning, wiring, and shaping to craft miniature trees.','A thoughtful and meditative activity that symbolizes balance and harmony.'],
+        emoji: '🌱'
+      },
+      { 
+        id: 5, 
+        title: 'Kokedama', 
+        subheading: 'Japanese string garden', 
+        image: './images/workshops/kokedama.png', 
+        description: ['A Japanese gardening style where plants are grown in a ball of soil wrapped with moss.','Participants tie the moss ball with threads, creating a unique hanging or decorative plant.','A blend of eco-friendliness and artistry, resulting in a striking piece of natural décor.'],
+        emoji: '🌱'
+      }
     ],
     corporates: [
-      { id: 1, title: 'Tray Garden', subheading: 'Team building with plants', image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=2070&auto=format&fit=crop', description: 'Perfect team activity to create mini gardens. Encourages collaboration and creativity.' },
-      { id: 2, title: 'Kokedama', subheading: 'Japanese string garden', image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=2070&auto=format&fit=crop', description: 'Team building with traditional Japanese technique. Create beautiful moss ball plants together.' },
-      { id: 3, title: 'Terrarium Making', subheading: 'Build ecosystems together', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1932&auto=format&fit=crop', description: 'Collaborative terrarium building session. Great for fostering teamwork and creativity.' },
-      { id: 4, title: 'Bonsai Making', subheading: 'Cultivate patience together', image: 'https://images.unsplash.com/photo-1613601315535-23c6e7aeeaf3?q=80&w=2072&auto=format&fit=crop', description: 'Learn the art of bonsai as a team. Develop patience and attention to detail together.' }
+      { 
+        id: 1, 
+        title: 'Tray Garden', 
+        subheading: 'Team building with plants', 
+        image: './images/workshops/tray.jpg', 
+        description: ['Participants create their own mini tray garden using an elegant white planter, Tatva Essence’s organic compost, and a healthy plant.','After potting, they add decorative elements such as pebbles, moss, and figurines to personalize their garden.','A creative and relaxing activity that blends nature, design, and learning.'],
+        emoji: '🌱'
+      },
+      { 
+        id: 2, 
+        title: 'Kokedama', 
+        subheading: 'Japanese string garden', 
+        image: './images/workshops/kokedama.png', 
+        description: ['A Japanese gardening style where plants are grown in a ball of soil wrapped with moss.','Participants tie the moss ball with threads, creating a unique hanging or decorative plant.','A blend of eco-friendliness and artistry, resulting in a striking piece of natural décor.'],
+        emoji: '🌱'
+      },
+      { 
+        id: 3, 
+        title: 'Terrarium Making', 
+        subheading: 'Build ecosystems together', 
+        image: './images/workshops/terarium.png', 
+        description: ['Teaches the art of creating a miniature self-sustaining garden inside a glass container.','Participants carefully layer soil, stones, moss, and small plants to build their terrarium.','Aesthetic, low-maintenance décor that sparks creativity and connects people with nature.'],
+        emoji: '🌱'
+      },
+      { 
+        id: 4, 
+        title: 'Bonsai Making', 
+        subheading: 'Cultivate patience together', 
+        image: './images/workshops/bonsai.png', 
+        description: ['Teaches the art of creating a miniature self-sustaining garden inside a glass container.','Participants carefully layer soil, stones, moss, and small plants to build their terrarium.','Aesthetic, low-maintenance décor that sparks creativity and connects people with nature.'],
+        emoji: '🌱'
+      }
     ]
   };
 
@@ -31,7 +94,7 @@ export default function Workshops() {
     <div className="workshops-page">
       <div 
         className="workshops-hero"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
+        style={{ backgroundImage: "url('./images/workshops/workshop-bg.jpg')" }}
         data-aos="fade-in" 
         data-aos-duration="800"
       >
@@ -51,7 +114,7 @@ export default function Workshops() {
               data-aos-duration="800"
               data-aos-delay="100"
             >
-              <div className="tile-image" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop')" }} />
+              <div className="tile-image" style={{ backgroundImage: "url('./images/workshops/grow-together-workshop.jpg')" }} />
               <div className="tile-content">
                 <h2 data-aos="fade-up" data-aos-delay="200">GROW TOGETHER</h2>
                 <p>For Schools</p>
@@ -67,7 +130,7 @@ export default function Workshops() {
               data-aos-duration="800"
               data-aos-delay="100"
             >
-              <div className="tile-image" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop')" }} />
+              <div className="tile-image" style={{ backgroundImage: "url('./images/workshops/garden-for-good-workshop.jpg')" }} />
               <div className="tile-content">
                 <h2 data-aos="fade-up" data-aos-delay="200">GARDEN FOR GOOD</h2>
                 <p>For Corporates</p>
@@ -133,8 +196,19 @@ function WorkshopCard({ workshop, index }) {
           </div>
         </div>
         <div className="card-back">
-          <h3>{workshop.title}</h3>
-          <p>{workshop.description}</p>
+          <div className="card-back-content">
+            <div className="card-emoji">{workshop.emoji}</div>
+            <h3>{workshop.title}</h3>
+            {Array.isArray(workshop.description) ? (
+              <ul className='card-back-description'>
+                {workshop.description.map((desc, idx) => (
+                  <li key={idx} className='card-back-description-points'>{desc}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>{workshop.description}</p>
+            )}
+          </div>
         </div>
       </div>
     </div>

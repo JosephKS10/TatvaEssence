@@ -123,21 +123,36 @@
   gap: 2rem;
 }
 
-/* Schools grid layout */
+/* --- Desktop: fine-grained grid to center second-row cards --- */
 .workshop-grid.schools {
-  grid-template-areas:
-    "card1 card2 card3"
-    "card4 card5 .";
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 equal tracks for fine placement */
+  grid-auto-rows: auto;
+  gap: 2rem;            /* adjust vertical/horizontal spacing */
+  align-items: start;
 }
 
-.workshop-grid.schools .card-1 { grid-area: card1; }
-.workshop-grid.schools .card-2 { grid-area: card2; }
-.workshop-grid.schools .card-3 { grid-area: card3; }
-.workshop-grid.schools .card-4 { grid-area: card4; }
-.workshop-grid.schools .card-5 { grid-area: card5; }
+/* Top row: each card spans 2 tracks (so three cards fit: 2+2+2 = 6) */
+.workshop-grid.schools .card-1 { grid-column: 1 / span 2; }
+.workshop-grid.schools .card-2 { grid-column: 3 / span 2; }
+.workshop-grid.schools .card-3 { grid-column: 5 / span 2; }
 
+/* Bottom row: place them "between" the top cards by shifting start column */
+.workshop-grid.schools .card-4 
+{ 
+  grid-column: 1 / span 3; 
+  height: 60vh;
+
+} /* between card1 & card2 */
+.workshop-grid.schools .card-5 { 
+  grid-column: 4 / span 3; 
+  height: 60vh;
+} 
+
+/* Ensure cards centre inside their grid cell (useful if card widths < column width) */
+.workshop-grid.schools .workshop-card {
+  justify-self: stretch; /* can change to 'center' if you want narrower cards centered */
+}
 /* Corporates grid layout */
 .workshop-grid.corporates {
   grid-template-areas:
@@ -153,8 +168,7 @@
 .workshop-grid.corporates .card-4 { grid-area: card4; }
 
 .workshop-card {
-  height: 300px;
-  perspective: 1000px;
+  height: 70vh;
 }
 
 .card-inner {
@@ -164,8 +178,9 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .workshop-card:hover .card-inner {
@@ -188,8 +203,8 @@
 }
 
 .card-back {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #fff;
+  color: #333;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
@@ -198,6 +213,71 @@
   padding: 2rem;
 }
 
+.card-back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.card-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card-back h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #2d5016;
+  font-weight: 600;
+}
+
+
+.card-back-description {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.card-back-description-points {
+  position: relative;
+  padding-left: 3rem;
+  padding-right: 2rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.55;
+  font-weight: 500;
+  text-align: justify;
+}
+
+/* Custom icon / bullet */
+.card-back-description-points::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.1rem;
+  color: #3a7428; /* match brand green */
+  font-weight: 600;
+  padding-left: 1rem;
+}
+
+/* subtle divider for cleaner readability */
+.card-back-description-points:not(:last-child) {
+  padding-bottom: 0.75rem;
+}
+
+/* optional polish – slight animation on hover */
+.card-back-description-points:hover {
+  transform: translateX(4px);
+   transition: 1s ease;
+  color: #2d5016;
+}
+
+
+
 .card-image {
   height: 70%;
   background-size: cover;
@@ -205,31 +285,23 @@
 }
 
 .card-content {
-  padding: 1rem;
+  padding: 1.5rem;
   height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: #fff;
 }
 
 .card-content h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  color: #333;
 }
 
 .card-content p {
   color: #666;
   font-size: 0.9rem;
-}
-
-.card-back h3 {
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-.card-back p {
-  line-height: 1.6;
-  font-size: 1rem;
 }
 
 @media (max-width: 968px) {
@@ -248,6 +320,18 @@
   .workshop-grid.corporates .workshop-card {
     grid-area: unset;
   }
+  
+  .card-back {
+    padding: 1.5rem;
+  }
+  
+  .card-back h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card-back p {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 668px) {
@@ -262,5 +346,26 @@
   
   .tile-content h2 {
     font-size: 1.5rem;
+  }
+  .workshop-card {
+    height: 50vh;
+  }
+  
+  .card-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .card-back {
+    padding: 1rem;
+  }
+  
+  .card-back h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-back p {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 }
