@@ -82,6 +82,7 @@ export default function Navbar() {
             <NavLink to="/store">Our Store</NavLink>
             <NavLink to="/gardens">Garden Services</NavLink>
             <NavLink to="/workshops">Workshops</NavLink>
+            <NavLink to="/about">About Us</NavLink>
           </div>
           
           <motion.button 
@@ -140,6 +141,7 @@ export default function Navbar() {
               <MobileNavLink to="/store" onClick={() => setMobileMenuOpen(false)}>Our Store</MobileNavLink>
               <MobileNavLink to="/gardens" onClick={() => setMobileMenuOpen(false)}>Garden Services</MobileNavLink>
               <MobileNavLink to="/workshops" onClick={() => setMobileMenuOpen(false)}>Workshops</MobileNavLink>
+              <MobileNavLink to="/about" onClick={() => setMobileMenuOpen(false)}>About Us</MobileNavLink>
             </div>
             
             <motion.button 

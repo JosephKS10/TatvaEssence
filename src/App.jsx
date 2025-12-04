@@ -6,6 +6,8 @@ import GardensService from './pages/GardensService/GardenService'
 import StoreService from './pages/StoreService/StoreService'
 import WorkshopsGiftingService from './pages/WorkshopsService/Workshops'
 import SplashScreen from './pages/SplashScreen/SplashScreen'
+import AboutUs from './pages/AboutUs/AboutUs';
+
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './App.css'
@@ -38,6 +40,7 @@ function App() {
           <Route path="/gardens" element={<GardensService />} />
           <Route path="/store" element={<StoreService />} />
           <Route path="/workshops" element={<WorkshopsGiftingService />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </Layout>
     </Router>

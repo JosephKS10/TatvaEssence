@@ -1,0 +1,525 @@
+:root {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+  --card-opacity: 0;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+  --grain: none;
+  --icon: none;
+  --behind-gradient: none;
+  --inner-gradient: none;
+  --sunpillar-1: hsl(2, 100%, 73%);
+  --sunpillar-2: hsl(53, 100%, 69%);
+  --sunpillar-3: hsl(93, 100%, 69%);
+  --sunpillar-4: hsl(176, 100%, 76%);
+  --sunpillar-5: hsl(228, 100%, 74%);
+  --sunpillar-6: hsl(283, 100%, 73%);
+  --sunpillar-clr-1: var(--sunpillar-1);
+  --sunpillar-clr-2: var(--sunpillar-2);
+  --sunpillar-clr-3: var(--sunpillar-3);
+  --sunpillar-clr-4: var(--sunpillar-4);
+  --sunpillar-clr-5: var(--sunpillar-5);
+  --sunpillar-clr-6: var(--sunpillar-6);
+  --card-radius: 30px;
+}
+
+/* Wrapper for the team card */
+.team-card-3d-wrapper {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.team-card-3d-wrapper .pc-card-wrapper {
+  perspective: 500px;
+  transform: translate3d(0, 0, 0.1px);
+  position: relative;
+  touch-action: none;
+  width: 100%;
+  height: 100%;
+}
+
+.team-card-3d-wrapper .pc-card-wrapper::before {
+  display: none;
+}
+
+.team-card-3d-wrapper .pc-card-wrapper:hover,
+.team-card-3d-wrapper .pc-card-wrapper.active {
+  --card-opacity: 1;
+}
+
+.team-card-3d-wrapper .pc-card {
+  height: 100%;
+  max-height: none;
+  display: grid;
+  aspect-ratio: 0.718;
+  border-radius: var(--card-radius);
+  position: relative;
+  background-blend-mode: normal;
+  animation: glow-bg 12s linear infinite;
+  box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pointer-from-left) * 10px) - 3px)
+    calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
+  transition: transform 1s ease;
+  transform: translate3d(0, 0, 0.1px) rotateX(0deg) rotateY(0deg);
+  background-size: 100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    50% 50%,
+    0 0;
+  background-image:
+    radial-gradient(
+      farthest-side circle at var(--pointer-x) var(--pointer-y),
+      hsla(0, 0%, 100%, calc(var(--card-opacity) * 0.1)) 4%,
+      hsla(0, 0%, 100%, calc(var(--card-opacity) * 0.05)) 10%,
+      hsla(0, 0%, 100%, 0) 50%,
+      hsla(0, 0%, 100%, 0) 100%
+    ),
+    transparent,
+    transparent,
+    transparent;
+  overflow: hidden;
+}
+
+.team-card-3d-wrapper .pc-card:hover,
+.team-card-3d-wrapper .pc-card.active {
+  transition: none;
+  transform: translate3d(0, 0, 0.1px) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+}
+
+.team-card-3d-wrapper .pc-card * {
+  display: grid;
+  grid-area: 1/-1;
+  border-radius: var(--card-radius);
+  transform: translate3d(0, 0, 0.1px);
+  pointer-events: none;
+}
+
+.pc-inside {
+  inset: 1px;
+  position: absolute;
+  background: transparent;
+  transform: translate3d(0, 0, 0.01px);
+}
+
+.pc-shine {
+  display: none;
+}
+
+.pc-glare {
+  display: none;
+}
+
+.pc-avatar-content {
+  mix-blend-mode: normal;
+  overflow: hidden;
+}
+
+.pc-avatar-content .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+}
+
+/* LinkedIn button wrapper */
+.pc-linkedin-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.pc-linkedin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: rgba(255, 255, 255);
+  border: 1px solid rgba(10, 102, 194);
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+}
+
+.pc-linkedin-btn:hover{
+  border-color: rgba(10, 102, 194, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(10, 102, 194, 0.5);
+}
+
+.pc-linkedin-icon {
+  width: 20px;
+  height: 20px;
+  color: rgba(10, 102, 194, 1);
+  flex-shrink: 0;
+}
+
+.pc-linkedin-text {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-left: 1.5rem;
+}
+
+.pc-content {
+  max-height: 100%;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  transform: translate3d(
+    calc(var(--pointer-from-left) * -6px + 3px),
+    calc(var(--pointer-from-top) * -6px + 3px),
+    0.1px
+  ) !important;
+  z-index: 5;
+  mix-blend-mode: normal;
+}
+
+.pc-details {
+  width: 100%;
+  position: absolute;
+  top: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pc-details h3 {
+  font-weight: 700;
+  margin: 0;
+  font-size: min(5svh, 2.5em);
+  line-height: 1.1;
+  background-image: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  background-size: 100% 100%;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pc-details p {
+  font-weight: 600;
+  white-space: nowrap;
+  font-size: 16px;
+  margin: 2.5rem auto;
+  width: min-content;
+  background-image: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  background-size: 100% 100%;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Description overlay */
+.team-description-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 40, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  color: white;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.team-description-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(76, 175, 80, 0.1) 50%,
+    transparent 70%
+  );
+  opacity: 0.5;
+}
+
+.team-card-3d-wrapper:active .team-description-overlay {
+  opacity: 1;
+}
+
+.team-description-content {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.team-description-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+}
+
+.team-description-header h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #584528 0%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.team-description-role {
+  font-size: 1rem;
+  color: #584528;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team-description-text {
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: #f0f0f0;
+  margin: 0;
+  text-align: left;
+}
+
+/* Custom scrollbar for description */
+.team-description-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.team-description-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.team-description-content::-webkit-scrollbar-thumb {
+  background: rgba(76, 175, 80, 0.6);
+  border-radius: 10px;
+}
+
+.team-description-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(76, 175, 80, 0.8);
+}
+
+@keyframes glow-bg {
+  0% {
+    --bgrotate: 0deg;
+  }
+  100% {
+    --bgrotate: 360deg;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-card-3d-wrapper {
+    height: 350px;
+    max-width: 280px;
+  }
+
+  .pc-details {
+    top: 1em;
+  }
+
+  .pc-details h3 {
+    font-size: min(4svh, 2em);
+  }
+
+  .pc-details p {
+    font-size: 14px;
+  }
+
+  .pc-linkedin-wrapper {
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+  }
+
+  .pc-linkedin-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .pc-linkedin-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .pc-linkedin-text {
+    font-size: 13px;
+  }
+
+  .team-description-overlay {
+    padding: 1.5rem;
+  }
+
+  .team-description-header h4 {
+    font-size: 1.3rem;
+  }
+
+  .team-description-role {
+    font-size: 0.9rem;
+  }
+
+  .team-description-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-card-3d-wrapper {
+    height: 320px;
+    max-width: 250px;
+  }
+
+  .pc-details {
+    top: 0.8em;
+  }
+
+  .pc-details h3 {
+    font-size: min(3.5svh, 1.8em);
+  }
+
+  .pc-details p {
+    font-size: 13px;
+  }
+
+  .pc-linkedin-wrapper {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .pc-linkedin-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+    gap: 5px;
+    border-radius: 10px;
+  }
+
+  .pc-linkedin-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .pc-linkedin-text {
+    font-size: 12px;
+  }
+
+  .team-description-overlay {
+    padding: 1.2rem;
+  }
+
+  .team-description-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .team-description-header h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .team-description-role {
+    font-size: 0.85rem;
+  }
+
+  .team-description-text {
+    font-size: 0.68rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 320px) {
+  .team-card-3d-wrapper {
+    height: 280px;
+    max-width: 220px;
+  }
+
+  .pc-details {
+    top: 0.6em;
+  }
+
+  .pc-details h3 {
+    font-size: min(3svh, 1.5em);
+  }
+
+  .pc-details p {
+    font-size: 11px;
+  }
+
+  .pc-linkedin-wrapper {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .pc-linkedin-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .pc-linkedin-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .pc-linkedin-text {
+    font-size: 11px;
+  }
+
+  .team-description-overlay {
+    padding: 1rem;
+  }
+
+  .team-description-header h4 {
+    font-size: 1rem;
+  }
+
+  .team-description-role {
+    font-size: 0.75rem;
+  }
+
+  .team-description-text {
+    font-size: 0.75rem;
+  }
+}
