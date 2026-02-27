@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import BookingModal from '../../components/BookingModal/BookingModal';
 import MinimalTeamCard from '../../components/MinimalTeamCard/MinimalTeamCard';
+import { MdOutlineRecycling, MdOutlineSearch, MdOutlineLightbulb, MdOutlineTrendingUp } from 'react-icons/md';
+import { FaRegHandshake } from 'react-icons/fa';
 
 export default function AboutUs() {
   const [showBookingModal, setShowBookingModal] = useState(false);
@@ -88,14 +90,25 @@ export default function AboutUs() {
           </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
-              { icon: '♻️', title: 'Sustainability', desc: 'Commitment to environmental and social responsibility in all our actions.' },
-              { icon: '🔍', title: 'Transparency', desc: 'Open and honest communication with our stakeholders.' },
-              { icon: '💡', title: 'Innovation', desc: 'Constantly seeking creative solutions to complex problems.' },
-              { icon: '🤝', title: 'Community', desc: 'Building strong, inclusive communities around sustainability.' },
-              { icon: '📈', title: 'Measurable Impact', desc: 'Focusing on outcomes that can be tracked and scaled.' },
+              { icon: <MdOutlineRecycling />, title: 'Sustainability', desc: 'Commitment to environmental and social responsibility in all our actions.' },
+              { icon: <MdOutlineSearch />, title: 'Transparency', desc: 'Open and honest communication with our stakeholders.' },
+              { icon: <MdOutlineLightbulb />, title: 'Innovation', desc: 'Constantly seeking creative solutions to complex problems.' },
+              { icon: <FaRegHandshake />, title: 'Community', desc: 'Building strong, inclusive communities around sustainability.' },
+              { icon: <MdOutlineTrendingUp />, title: 'Measurable Impact', desc: 'Focusing on outcomes that can be tracked and scaled.' },
             ].map((value, index) => (
-              <motion.div key={index} className="text-center p-8 bg-[#f8f8f8] rounded-xl border border-[#eee] transition-all duration-300 hover:bg-white hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)] hover:border-[#ddd]" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} whileHover={{ scale: 1.05 }}>
-                <div className="text-4xl md:text-5xl mb-4">{value.icon}</div>
+              <motion.div 
+                key={index} 
+                className="text-center p-8 bg-[#f8f8f8] rounded-xl border border-[#eee] transition-all duration-300 hover:bg-white hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)] hover:border-[#ddd]" 
+                initial={{ opacity: 0, scale: 0.9 }} 
+                whileInView={{ opacity: 1, scale: 1 }} 
+                transition={{ duration: 0.5, delay: index * 0.1 }} 
+                viewport={{ once: true }} 
+                whileHover={{ scale: 1.05 }}
+              >
+                {/* Fixed alignment with flex justify-center and added brand color */}
+                <div className="text-4xl md:text-5xl mb-4 flex justify-center text-tatva-green">
+                  {value.icon}
+                </div>
                 <h3 className="text-xl md:text-[1.3rem] font-semibold text-[#222] mb-4">{value.title}</h3>
                 <p className="text-[#666] text-sm md:text-[0.95rem] leading-[1.6]">{value.desc}</p>
               </motion.div>
