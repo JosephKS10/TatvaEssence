@@ -1,26 +1,25 @@
 import { motion } from 'framer-motion'
-import './EssenceSection.css'
 import tatvaLogo from '/icon.svg' 
 
 export default function EssenceSection() {
   return (
-    <section className="essence-section">
+    <section className="relative bg-[#fdfaf5] py-16 px-6 md:py-20 md:px-8 overflow-hidden">
       {/* Logo Background */}
-      <div className="logo-background">
-        <img src={tatvaLogo} alt="Tatva Logo" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 z-0 w-[250px] h-[250px] md:w-[400px] md:h-[400px] flex items-center justify-center">
+        <img src={tatvaLogo} alt="Tatva Logo Background" className="w-full h-full object-contain" loading="lazy" />
       </div>
 
       {/* Text Content */}
-      <div className="essence-container">
+      <div className="relative z-10 max-w-[1200px] mx-auto text-center">
         <motion.h2
-          className="essence-title"
+          className="text-[clamp(2rem,7vw,3rem)] md:text-[clamp(2.5rem,6vw,3rem)] font-black mb-8 text-[#3e2723]"
           data-aos="fade-up"
         >
           The Essence Behind Tatva
         </motion.h2>
 
         <motion.p
-          className="essence-text"
+          className="text-base md:text-[1.15rem] leading-relaxed md:leading-[1.7] mb-6 text-[#4b3a2f]"
           data-aos="fade-up"
           data-aos-delay="100"
         >
@@ -28,7 +27,7 @@ export default function EssenceSection() {
         </motion.p>
 
         <motion.p
-          className="essence-text"
+          className="text-base md:text-[1.15rem] leading-relaxed md:leading-[1.7] mb-6 text-[#4b3a2f]"
           data-aos="fade-up"
           data-aos-delay="200"
         >

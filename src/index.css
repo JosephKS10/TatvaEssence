@@ -1,6 +1,58 @@
-:root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Import Tailwind */
+@import "tailwindcss";
+
+/* Define your custom theme variables right here */
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --color-tatva-green: #4CAF50;
+  --color-tatva-dark: #2d5016;
+  --color-tatva-light: #f9f9f9;
+  --color-tatva-brown: #3e2723;
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    background-color: white;
+    color: #1f2937; /* gray-800 */
+    overflow-x: hidden;
+  }
+}
+
+/* Premium custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: #000; /* gray-100 */
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom right, #fff, #fff); /* gray-400 to gray-800 */
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom right, #fff, #fff); /* gray-500 to black */
+}
+
+@keyframes infinite-scroll {
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+.animate-infinite-scroll {
+  animation: infinite-scroll 30s linear infinite;
+}
+
+@keyframes glow-bg {
+  0% { --bgrotate: 0deg; }
+  100% { --bgrotate: 360deg; }
 }

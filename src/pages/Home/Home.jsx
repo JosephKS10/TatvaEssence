@@ -8,17 +8,15 @@ import ReviewSection from '../../components/ReviewSection/ReviewSection'
 import FAQSection from '../../components/FAQSection/FAQSection'
 import Footer from '../../components/Footer/Footer'
 
-import "./Home.css"
-
 export default function Home() {
   useEffect(() => {
-       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-       document.body.classList.remove('no-scroll')
-     }, [])
-     
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    // Replaced custom 'no-scroll' class with Tailwind's 'overflow-hidden' just in case
+    document.body.classList.remove('overflow-hidden')
+  }, [])
 
   return (
-    <div className="bg-black">
+    <div className="bg-black min-h-screen">
       <HeroSection />
       <AboutWorkSection />
       <EssenceSection />

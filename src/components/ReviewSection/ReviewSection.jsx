@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import './ReviewSection.css'
 
 const reviews = [
   {
@@ -61,47 +60,50 @@ export default function ReviewSection() {
   }
 
   return (
-    <section className="reviews-section">
+    <section className="py-12 px-6 md:py-20 bg-[#f9f9f9] relative">
       <h2 
-        className="section-title"
+        className="text-center text-3xl md:text-[2.5rem] font-bold mb-8 md:mb-12 text-[#333]"
         data-aos="fade-up"
         data-aos-duration="800"
       >
         What People Say
       </h2>
       
-      <div className="reviews-container" data-aos="fade-up" data-aos-delay="200">
+      <div className="max-w-[800px] mx-auto relative min-h-[350px] md:min-h-[300px] flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
         <AnimatePresence mode='wait'>
           <motion.div
             key={currentIndex}
-            className="review-card"
+            className="w-full bg-white rounded-3xl p-8 md:p-12 relative shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-black/5"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <div className="quote-icon">“</div>
-            <p className="review-content">{reviews[currentIndex].content}</p>
-            <div className="review-author">
+            <div className="absolute top-4 md:top-6 left-6 md:left-8 text-5xl md:text-6xl text-tatva-green opacity-20 font-serif leading-none">“</div>
+            <p className="text-base md:text-[1.25rem] leading-[1.8] text-[#555] mb-8 relative z-10 pt-4 md:pt-0">
+              {reviews[currentIndex].content}
+            </p>
+            <div className="flex items-center gap-4 md:gap-6">
               <img 
                 src={reviews[currentIndex].avatar} 
                 alt={reviews[currentIndex].author}
-                className="author-avatar"
+                className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] rounded-full object-cover border-[3px] border-tatva-green"
+                loading="lazy"
               />
-              <div className="author-info">
-                <h4>{reviews[currentIndex].author}</h4>
-                <p>{reviews[currentIndex].role}</p>
+              <div>
+                <h4 className="text-lg md:text-[1.25rem] font-semibold mb-1 text-[#333]">{reviews[currentIndex].author}</h4>
+                <p className="text-sm md:text-base text-[#777] m-0">{reviews[currentIndex].role}</p>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <div className="review-dots">
+      <div className="flex justify-center gap-3 mt-12">
         {reviews.map((_, index) => (
           <button
             key={index}
-            className={`review-dot ${index === currentIndex ? 'active' : ''}`}
+            className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 border-none p-0 focus:outline-none focus:ring-2 focus:ring-tatva-green focus:ring-offset-2 ${index === currentIndex ? 'bg-tatva-green scale-125' : 'bg-[#ddd]'}`}
             onClick={() => goToReview(index)}
             aria-label={`Go to review ${index + 1}`}
           />

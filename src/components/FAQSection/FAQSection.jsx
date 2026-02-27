@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import './FAQSection.css'
 
 const faqs = [
   {
@@ -31,9 +30,9 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="faq-section">
+    <section className="py-12 px-6 md:py-20 bg-white">
       <motion.h2 
-        className="section-title"
+        className="text-center text-3xl md:text-[2.5rem] font-bold mb-8 md:mb-12 text-[#333]"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -42,7 +41,7 @@ export default function FAQSection() {
         Frequently Asked Questions
       </motion.h2>
       
-      <div className="faq-container">
+      <div className="max-w-[800px] mx-auto">
         {faqs.map((faq, index) => (
           <FAQItem 
             key={index}
@@ -54,9 +53,9 @@ export default function FAQSection() {
       </div>
       
       <motion.button
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, translateY: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="faq-cta"
+        className="block mx-auto mt-12 bg-tatva-green hover:bg-[#3e8e41] text-white border-none px-8 py-4 rounded-full text-[1.1rem] font-medium cursor-pointer transition-all duration-300 shadow-[0_4px_6px_rgba(0,0,0,0.1)]"
       >
         Book a Meeting Now
       </motion.button>
@@ -69,14 +68,14 @@ function FAQItem({ question, answer, index }) {
 
   return (
     <motion.div 
-      className="faq-item"
+      className="mb-4 rounded-lg overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.05)] border border-black/5"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       viewport={{ once: true }}
     >
       <button 
-        className="faq-question"
+        className="w-full flex justify-between items-center p-4 md:p-6 bg-white hover:bg-gray-50 border-none cursor-pointer text-base md:text-[1.1rem] font-medium text-left text-[#333] transition-colors"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
@@ -84,14 +83,14 @@ function FAQItem({ question, answer, index }) {
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3 }}
-          className="faq-icon"
+          className="text-2xl font-light text-tatva-green ml-4"
         >
           +
         </motion.span>
       </button>
       
       <motion.div
-        className="faq-answer"
+        className="overflow-hidden bg-[#f9f9f9]/80"
         initial={{ height: 0, opacity: 0 }}
         animate={{ 
           height: isOpen ? 'auto' : 0,
@@ -99,12 +98,14 @@ function FAQItem({ question, answer, index }) {
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <div className="faq-answer-content">
+        <div className="px-4 md:px-6 pb-6 pt-2 text-black leading-[1.6]">
           {answer}
           <div>
              {(index === 2 || index === 3 || index === 4) && (
-                    <button className="inline-cta">Book a Meeting Now</button>
-                )}
+                <button className="inline-block mt-4 bg-tatva-green hover:bg-[#3e8e41] text-white border-none px-4 py-2 rounded-full text-[0.9rem] cursor-pointer transition-colors duration-300">
+                  Book a Meeting Now
+                </button>
+              )}
           </div>
         </div>
       </motion.div>
